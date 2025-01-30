@@ -8,18 +8,20 @@ import LikesPage from './pages/LikesPage'
 
 import Sidebar from './components/Sidebar'
 function App() {
- 
+
 
   return (
     <div className='flex'>
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/sign-in" element={<SignInPage/>}/>
-        <Route path="/sign-up" element={<SignUpPage/>}/>
-        <Route path="/explore" element={<ExplorePage/>}/>
-        <Route path="/likes" element={<LikesPage/>}/>
-      </Routes>
+      <div className='max-w-5xl my-5 text-white mx-auto transition-all duration-300 flex-1'>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/likes" element={<LikesPage />} />
+        </Routes>
+      </div>
 
     </div>
   )
