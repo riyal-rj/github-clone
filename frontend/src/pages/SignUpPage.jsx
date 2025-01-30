@@ -9,15 +9,14 @@ const SignUpPage = () => {
 				<div className='p-6 space-y-4 md:space-y-6 sm:p-8'>
 					<h1 className='text-xl font-bold md:text-2xl text-center'>Spin up your dev hub</h1>
 					<button
-						type='button'
-						className='text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
-						focus:ring-[#24292F]/50 font-medium rounded-lg flex gap-2 p-2 items-center w-full 
-						text-center justify-center'
-					>
-						<FaGithub className='w-5 h-5' />
-						Sign up with Github
-            
-					</button>
+                      type="button"
+                      className="text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 
+                focus:ring-gray-600 font-medium rounded-lg flex gap-3 p-3 items-center w-full justify-center 
+                transition-all duration-300 hover:scale-105 border border-gray-700"
+                    >
+                      <FaGithub className="w-5 h-5" />
+                      Sign Up with GitHub
+                    </button>
 					<p className="text-gray-400 text-center mt-4 text-sm">
           Don’t just clone—commit to the full experience! 🔥
 						<span>
