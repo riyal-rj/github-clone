@@ -1,4 +1,5 @@
 import express from 'express';
-const routers = express.Router();
+const router = express.Router();
 
-export default routers;
+router.get('/repos/:language',explorePopularRepos)
+export default router;
