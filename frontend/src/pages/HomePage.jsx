@@ -16,12 +16,8 @@ const HomePage = () => {
   const getUserProfileAndRepositories = useCallback(async (username = "riyal-rj") => {
     setLoading(true);
     try {
-      const userRes = await fetch(`https://api.github.com/users/${username}`);
-      const userProfile = await userRes.json();
-      setUserProfile(userProfile);
-
-      const reposRes = await fetch(userProfile.repos_url);
-      const repos = await reposRes.json();
+      const res = await fetch(`http://localhost:5000/api/users/profile/${username}`);
+      const{userProfile,repos} = await res.json();
       setRepos(repos);
       setUserProfile(userProfile);
       return { userProfile, repos };
