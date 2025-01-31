@@ -1,0 +1,23 @@
+{
+  "name": "github-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node server.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "riyalRJ",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9"
+  }
+}

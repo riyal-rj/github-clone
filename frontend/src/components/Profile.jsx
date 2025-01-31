@@ -4,24 +4,27 @@ import {TfiThought} from 'react-icons/tfi';
 import {FaSquareXTwitter, FaXTwitter} from 'react-icons/fa6';
 import {RiGitRepositoryFill,RiUserFollowFill, RiUserFollowLine} from 'react-icons/ri';
 import { IoLocationOutline } from 'react-icons/io5';
-export const Profile = () => {
-    const userProfile = {
-		avatar_url: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-		bio: "👨🏻‍💻👨🏻‍💻👨🏻‍💻",
-		email: "johndoe@gmail.com",
-		followers: 100,
-		following: 200,
-		html_url: "https://github.com/burakorkmez",
-		location: "Somewhere, Earth",
-		name: "John Doe",
-		public_gists: 100,
-		public_repos: 100,
-		twitter_username: "johndoe",
-		login: "johndoe",
-	};
+import { formatDate } from '../utils/date';
+export const Profile = ({userProfile}) => {
+    // const userProfile = {
+	// 	avatar_url: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+	// 	bio: "👨🏻‍💻👨🏻‍💻👨🏻‍💻",
+	// 	email: "johndoe@gmail.com",
+	// 	followers: 100,
+	// 	following: 200,
+	// 	html_url: "https://github.com/riyal-rj",
+	// 	location: "Somewhere, Earth",
+	// 	name: "John Doe",
+	// 	public_gists: 100,
+	// 	public_repos: 100,
+	// 	twitter_username: "johndoe",
+	// 	login: "johndoe",
+	// };
+
+    const memberSince=formatDate(userProfile?.created_at);
 
 	return (
-		<div className='lg:w-1/3 w-full flex flex-col gap-2 md:sticky md:top-10'>
+		<div className='lg:w-1/3 w-full flex flex-col gap-2 lg:sticky md:top-10'>
 			<div className='bg-glass rounded-lg p-4'>
 				<div className='flex gap-4 items-center'>
 					{/* User Avatar */}
@@ -46,7 +49,7 @@ export const Profile = () => {
 				{userProfile?.bio ? (
 					<div className='flex items-center gap-2'>
 						<TfiThought />
-						<p className='text-sm'>{userProfile?.bio.substring(0, 60)}...</p>
+						<p className='text-sm'>{userProfile?.bio.substring(0, 500)}...</p>
 					</div>
 				) : null}
 
@@ -74,7 +77,7 @@ export const Profile = () => {
 				{/* Member Since Date */}
 				<div className='my-2'>
 					<p className='text-gray-600 font-bold text-sm'>Member since</p>
-					<p className=''>21 Sep, 2023</p>
+					<p className=''>{memberSince}</p>
 				</div>
 
 				{/* Email Address */}
