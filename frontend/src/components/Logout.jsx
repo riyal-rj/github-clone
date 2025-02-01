@@ -1,12 +1,28 @@
 import React from 'react'
+import { use } from 'react'
 import { MdLogout } from 'react-icons/md'
+import { useAuthContext } from '../context/auth.context';
+import toast from 'react-hot-toast';
 
 const Logout = () => {
+
+  const {authUser,setAuthUser}=useAuthContext();
+  console.log(authUser);
+  const handleLogout=async()=>{
+    try {
+      const res=await fetch(`/api/auth/logout`,{credentials:"include"});
+      const data=await res.json();
+      console.log(data);
+      setAuthUser(null);
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
   return (
     <>
       <div className="flex-grow"></div>
       <img
-        src={"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"}
+        src={authUser.avatarUrl}
         className='w-10 h-10 rounded-full border border-gray-800'
         alt='User Avatar'
       />
@@ -15,6 +31,8 @@ const Logout = () => {
   bg-gray-800 border border-gray-700 shadow-md 
   transition-all duration-300 hover:bg-red-600 hover:border-red-500 
   hover:shadow-md hover:scale-105"
+
+      onClick={handleLogout}
       >
         <MdLogout size={22} className="text-white" />
       </div>

@@ -31,8 +31,8 @@ const userSchema=new mongoose.Schema(
                 avatarUrl:{
                     type:String
                 },
-                likedData:{
-                    type:DataTransfer,
+                likedDate:{
+                    type:Date,
                     default:Date.now
                 }
             }

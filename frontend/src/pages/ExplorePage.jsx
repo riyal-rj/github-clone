@@ -12,9 +12,9 @@ const ExplorePage = () => {
     setLoading(true);
     setRepos([]);
     try {
-      const repoRes = await fetch(`https://api.github.com/search/repositories?q=language:${language}`);
-      const repos = await repoRes.json();
-      setRepos(repos.items);
+      const repoRes = await fetch(`http://localhost:5000/api/explore/repos/${language}`);
+      const {repos} = await repoRes.json();
+      setRepos(repos);
       setSelectedLanguage(language);
     } catch (error) {
       toast.error(error.message);

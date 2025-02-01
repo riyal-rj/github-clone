@@ -6,21 +6,6 @@ import {RiGitRepositoryFill,RiUserFollowFill, RiUserFollowLine} from 'react-icon
 import { IoLocationOutline } from 'react-icons/io5';
 import { formatDate } from '../utils/date';
 export const Profile = ({userProfile}) => {
-    // const userProfile = {
-	// 	avatar_url: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-	// 	bio: "👨🏻‍💻👨🏻‍💻👨🏻‍💻",
-	// 	email: "johndoe@gmail.com",
-	// 	followers: 100,
-	// 	following: 200,
-	// 	html_url: "https://github.com/riyal-rj",
-	// 	location: "Somewhere, Earth",
-	// 	name: "John Doe",
-	// 	public_gists: 100,
-	// 	public_repos: 100,
-	// 	twitter_username: "johndoe",
-	// 	login: "johndoe",
-	// };
-
     const memberSince=formatDate(userProfile?.created_at);
 
 	return (

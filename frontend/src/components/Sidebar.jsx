@@ -5,9 +5,10 @@ import {IoHomeSharp} from 'react-icons/io5';
 import {MdOutlineExplore,MdEditDocument,MdLogout} from 'react-icons/md';
 import {PiSignInBold} from 'react-icons/pi';
 import Logout from './Logout';
+import { useAuthContext } from '../context/auth.context';
 
 const Sidebar = () => {
-    const authUser = true;
+    const {authUser}=useAuthContext();
   return (
             <aside
                 className='flex flex-col items-center min-w-14 sm:w-20 sticky top-0 left-0 h-screen py-8 overflow-y-auto border-r 
@@ -50,8 +51,8 @@ const Sidebar = () => {
     
                     {!authUser && (
                         <Link
-                            to='/login'
-                            className='p-2 transition-all duration-300 rounded-xl hover:bg-gray-800/60 hover:shadow-lg'
+                            to='/sign-in'
+                            className='p-2 transition-all duration-300 rounded-xl hover:bg-green-200 hover:shadow-lg'
                         >
                             <PiSignInBold size={25} className='text-green-400 hover:text-green-500' />
                         </Link>
@@ -59,8 +60,8 @@ const Sidebar = () => {
     
                     {!authUser && (
                         <Link
-                            to='/signup'
-                            className='p-2 transition-all duration-300 rounded-xl hover:bg-gray-800/60 hover:shadow-lg'
+                            to='/sign-up'
+                            className='p-2 transition-all duration-300 rounded-xl hover:bg-yellow-200 hover:shadow-lg'
                         >
                             <MdEditDocument size={25} className='text-yellow-400 hover:text-yellow-500' />
                         </Link>
