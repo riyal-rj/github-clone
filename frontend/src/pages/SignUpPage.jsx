@@ -1,10 +1,12 @@
 import React from 'react'
+import toast from 'react-hot-toast';
 import {FaGithub, FaUnlockAlt} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 const SignUpPage = () => {
     console.log('signup');
 	const handleLoginWithGithub = () => {
 		window.open('/api/auth/github', '_self');
+		toast.success('Redirecting to GitHub...');
 	}
   return (
     <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0'>

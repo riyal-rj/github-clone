@@ -3,12 +3,12 @@ import { ENV_VARS } from '../env/env.variables.js';
 import User from '../models/User.models.js';
 import {Strategy as GithubStrategy} from 'passport-github2';
 
-passport.serializeUser(function(user,done){
-    done(null,user);
+passport.serializeUser(function (user, done) {
+	done(null, user);
 });
 
-passport.deserializeUser(function(obj,done){
-    done(null,obj);
+passport.deserializeUser(function (obj, done) {
+	done(null, obj);
 });
 
 passport.use(
@@ -18,21 +18,19 @@ passport.use(
             clientSecret: ENV_VARS.GITHUB_CLIENT_SECRET,
             callbackURL:`/api/auth/github/callback`
         },
-        async function(accessToken,refreshToken,profile,done){
+        async function (accessToken, refreshToken, profile, done) {
            const user=await User.findOne({username:profile.username});
-           console.log(profile);
-           if(!user)
-           {
-            const newUser=new User({
-                username:profile.username,
-                name:profile.displayName,
-                avatarUrl:profile.photos[0].value,
-                profileUrl:profile.profileUrl,
-                likedProfiles:[],
-                likedBy:[],
+           if (!user) {
+            const newUser = new User({
+                name: profile.displayName,
+                username: profile.username,
+                profileUrl: profile.profileUrl,
+                avatarUrl: profile.photos[0].value,
+                likedProfiles: [],
+                likedBy: [],
             });
             await newUser.save();
-            done(null,newUser);
+            done(null, newUser);
            }
            else
            {
@@ -40,4 +38,4 @@ passport.use(
            }
         }
     )
-)
+);
