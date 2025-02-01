@@ -32,11 +32,11 @@ passport.use(
                 likedBy:[],
             });
             await newUser.save();
-            return done(null,newUser);
+            done(null,newUser);
            }
            else
            {
-            return done(null,user);
+            done(null,user);
            }
         }
     )

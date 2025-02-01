@@ -16,9 +16,10 @@ app.use(morgan("dev"));
 
 app.use(cors());
 
-app.use(session({secret:"keyboard cat",resave:false,saveUninitialized:false}));
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use('/api/auth',authRoutes);
 app.use('/api/users',userRoutes);
 app.use('/api/explore',exploreRoutes);

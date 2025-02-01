@@ -23,8 +23,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/sign-in" element={!authUser?<SignInPage />: <Navigate to="/" />} />
           <Route path="/sign-up" element={!authUser?<SignUpPage />: <Navigate to="/" />} />
-          <Route path="/explore" element={<ExplorePage />} />
-          <Route path="/likes" element={<LikesPage />} />
+          <Route path="/explore" element={authUser?<ExplorePage />: <Navigate to="/sign-in" />} />
+          <Route path="/likes" element={authUser?<LikesPage />: <Navigate to="/sign-in" />} />
         </Routes>
         <Toaster/>
       </div>

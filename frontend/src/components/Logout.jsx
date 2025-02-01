@@ -1,5 +1,4 @@
 import React from 'react'
-import { use } from 'react'
 import { MdLogout } from 'react-icons/md'
 import { useAuthContext } from '../context/auth.context';
 import toast from 'react-hot-toast';

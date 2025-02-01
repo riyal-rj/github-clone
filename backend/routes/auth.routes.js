@@ -4,7 +4,8 @@ import { ENV_VARS } from '../env/env.variables.js';
 const router = express.Router();
 
 router.get('/github',passport.authenticate('github',{scope:['user:email']}));
-router.get('/github/callback',passport.authenticate('github',{failureRedirect:ENV_VARS.CLIENT_URL+'/sign-in'}),(req,res)=>{
+router.get('/github/callback',passport.authenticate('github',
+    {failureRedirect:ENV_VARS.CLIENT_URL+'/sign-in'}),(req,res)=>{
     res.redirect(ENV_VARS.CLIENT_URL);
 });
 
